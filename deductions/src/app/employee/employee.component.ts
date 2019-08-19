@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { first } from 'rxjs/operators';
+import { DeductionCalculationsService } from '../employeeDeductions/deduction-calculations.service';
 
 @Component({
   selector: 'app-employee',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private deductionCalculationService: DeductionCalculationsService) { }
 
   ngOnInit() {
+    this.deductionCalculationService.testEndPoints().pipe(first()).subscribe();
   }
 
 }
