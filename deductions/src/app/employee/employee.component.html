@@ -10,7 +10,27 @@
       <input name="employeeLastName" type="text" formControlName="lastName"/>
     </div>
   </div>
+  <div formArrayName="dependents" *ngFor="let dependent of dependentsArray.controls; let i=index">
+    <ng-container [formGroupName]="i"]>
+      <div class="row">
+        <div class="col">
+          <label for="employeeFirstName">First Name</label>
+          <input name="employeeFirstName" type="text" formControlName="firstName"/>
+        </div>
+        <div class="col">
+          <label for="employeeLastName">Last Name</label>
+          <input name="employeeLastName" type="text" formControlName="lastName"/>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button type="button" (click)="addDependent()">Add Dependent</button>
+    </div>
+  </div>
 
   <button type="submit">Submit</button>
+
   <pre>{{ employeeForm.getRawValue() | json }}</pre>
 </form>

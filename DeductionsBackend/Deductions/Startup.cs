@@ -28,7 +28,7 @@ namespace Deductions
                 options.AddPolicy(AllowLocalhost,
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:4200");
+                        builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
                     });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

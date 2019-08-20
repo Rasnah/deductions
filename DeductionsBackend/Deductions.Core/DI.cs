@@ -8,8 +8,9 @@ namespace Deductions.Core
     {
         public static IServiceCollection AddCoreLibrary(this IServiceCollection services)
         {
-            services.AddScoped<IDeductionCalculators, DeductionCalculators>();
-            services.AddScoped<IEmployeeDeductionProxy, EmployeeDeductionProxy>();
+            services.AddSingleton<IDeductionCalculators, DeductionCalculators>();
+            services.AddSingleton<IDiscountCalculators, DiscountCalculators>();
+            services.AddSingleton<IEmployeeDeductionProxy, EmployeeDeductionProxy>();
             return services;
         }
     }

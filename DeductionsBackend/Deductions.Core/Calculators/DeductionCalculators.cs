@@ -1,23 +1,26 @@
-﻿namespace Deductions.Core.Calculators
+﻿using Deductions.Models.Contracts;
+
+namespace Deductions.Core.Calculators
 {
     public interface IDeductionCalculators
     {
-        decimal CalculateAnnualCost(string employeeName);
+        decimal CalculateEmployeeAnnualCost(EmployeeContract employee);
+        decimal CalculateDependentAnnualCost(DependentContract dependent);
     }
 
     public class DeductionCalculators : IDeductionCalculators
     {
-        public decimal CalculateAnnualCost(string employeeName)
-        {
-            decimal employeeCost = 1000.00m;
-            decimal discountPercentage = 0.0m;
-            if (employeeName.ToLower().StartsWith("a"))
-            {
-                discountPercentage = 0.1m;
-            }
+        const decimal EMPLOYEE_ANNUAL_DEDUCTIONS = 1000.00m;
+        const decimal DEPENDENT_ANNUAL_DEDUCTIONS = 500.00m;
 
-            decimal totalDiscount = employeeCost * discountPercentage;
-            return employeeCost - totalDiscount;
+        public decimal CalculateEmployeeAnnualCost(EmployeeContract employee)
+        {
+            return EMPLOYEE_ANNUAL_DEDUCTIONS;
+        }
+
+        public decimal CalculateDependentAnnualCost(DependentContract dependent)
+        {
+            return DEPENDENT_ANNUAL_DEDUCTIONS;
         }
     }
 }

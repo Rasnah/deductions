@@ -17,7 +17,6 @@ export class DeductionCalculationsService {
   constructor(private http: HttpClient) { }
 
   calculateEmployeeDeductions(employee: EmployeeContract): Observable<number> {
-    //return this.http.post<number>('http://localhost:4201/api/DeductionCalculations', employee, httpOptions);
-    return this.http.get<number>('http://localhost:4201/api/DeductionCalculations');
+    return this.http.post<number>('http://localhost:4201/api/DeductionCalculations', employee, httpOptions);
   }
 }
