@@ -1,15 +1,16 @@
 <h2>Input Employee Information</h2>
-<div class="row">
-  <div class="col">
-    <label for="employeeName">Employee Name</label>
-    <app-name-input name="employeeName" type="text"></app-name-input>
-  </div>
-  <div class="col">
-    <label for="employeeName">Employee Name</label>
-    <input name="employeeName" type="text"/>
-  </div>
-  <div class="col">
-      <label for="employeeName">Employee Name</label>
-      <input name="employeeName" type="text"/>
+<form [formGroup]="employeeForm" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col">
+      <label for="employeeFirstName">Employee First Name</label>
+      <input name="employeeFirstName" type="text" formControlName="firstName"/>
     </div>
-</div>
+    <div class="col">
+      <label for="employeeLastName">Employee Last Name</label>
+      <input name="employeeLastName" type="text" formControlName="lastName"/>
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+  <pre>{{ employeeForm.getRawValue() | json }}</pre>
+</form>

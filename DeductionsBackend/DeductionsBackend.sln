@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deductions", "Deductions\Deductions.csproj", "{C8D85539-DD6C-4DFE-84CE-167F477CB2E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deductions.Service", "Deductions\Deductions.Service.csproj", "{C8D85539-DD6C-4DFE-84CE-167F477CB2E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deductions.Models", "Deductions.Models\Deductions.Models.csproj", "{5D2267A8-FBE1-49DB-BEDF-C3D810A40F82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deductions.Core", "Deductions.Core\Deductions.Core.csproj", "{AA123E92-F015-4D95-9355-56A85244F5BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{C8D85539-DD6C-4DFE-84CE-167F477CB2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8D85539-DD6C-4DFE-84CE-167F477CB2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8D85539-DD6C-4DFE-84CE-167F477CB2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D2267A8-FBE1-49DB-BEDF-C3D810A40F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D2267A8-FBE1-49DB-BEDF-C3D810A40F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D2267A8-FBE1-49DB-BEDF-C3D810A40F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D2267A8-FBE1-49DB-BEDF-C3D810A40F82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA123E92-F015-4D95-9355-56A85244F5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA123E92-F015-4D95-9355-56A85244F5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA123E92-F015-4D95-9355-56A85244F5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA123E92-F015-4D95-9355-56A85244F5BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

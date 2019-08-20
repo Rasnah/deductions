@@ -1,3 +1,7 @@
 /.vs
 /Deductions/bin
 /Deductions/obj
+/Deductions.Core/bin
+/Deductions.Core/obj
+/Deductions.Models/bin
+/Deductions.Models/obj

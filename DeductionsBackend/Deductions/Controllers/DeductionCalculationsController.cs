@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Deductions.Core.Proxies;
+using Deductions.Models.Contracts;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Deductions.Controllers
+namespace Deductions.Service.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/DeductionCalculations")]
     [ApiController]
     public class DeductionCalculationsController : ControllerBase
     {
+        private readonly IEmployeeDeductionProxy _employeeDeductionProxy;
+
+        public DeductionCalculationsController(IEmployeeDeductionProxy employeeDeductionProxy) : base()
+        {
+            _employeeDeductionProxy = employeeDeductionProxy;
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -15,15 +24,16 @@ namespace Deductions.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<decimal> Get(string id)
         {
-            return "value";
+            return 0m;
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] EmployeeContract value)
         {
+            //_employeeDeductionsProxy.thing("poop");
         }
 
         // PUT api/values/5

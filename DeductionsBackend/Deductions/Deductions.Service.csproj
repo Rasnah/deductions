@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
+    <ProjectReference Include="..\Deductions.Core\Deductions.Core.csproj" />
+    <ProjectReference Include="..\Deductions.Models\Deductions.Models.csproj" />
   </ItemGroup>
 
 </Project>

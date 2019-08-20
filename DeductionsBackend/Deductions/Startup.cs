@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Deductions.Core;
+using Deductions.Core.Calculators;
+using Deductions.Core.Proxies;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +32,9 @@ namespace Deductions
                     });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // .NET provided dependency injection
+            services.AddCoreLibrary();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
