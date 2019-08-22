@@ -1,6 +1,6 @@
 ﻿using Deductions.Core.Calculators;
 using Deductions.Models.Contracts;
-using Deductions.Models.Entities;
+using Deductions.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

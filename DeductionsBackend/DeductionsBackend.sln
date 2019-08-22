@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deductions.Service", "Deductions\Deductions.Service.csproj", "{C8D85539-DD6C-4DFE-84CE-167F477CB2E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deductions.Models", "Deductions.Models\Deductions.Models.csproj", "{5D2267A8-FBE1-49DB-BEDF-C3D810A40F82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deductions.Models", "Deductions.Models\Deductions.Models.csproj", "{5D2267A8-FBE1-49DB-BEDF-C3D810A40F82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deductions.Core", "Deductions.Core\Deductions.Core.csproj", "{AA123E92-F015-4D95-9355-56A85244F5BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deductions.Core", "Deductions.Core\Deductions.Core.csproj", "{AA123E92-F015-4D95-9355-56A85244F5BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deductions.Tests", "Deductions.Tests\Deductions.Tests.csproj", "{D053983C-8B8B-4D33-9FB6-9FD9FDF22AA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{AA123E92-F015-4D95-9355-56A85244F5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA123E92-F015-4D95-9355-56A85244F5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA123E92-F015-4D95-9355-56A85244F5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D053983C-8B8B-4D33-9FB6-9FD9FDF22AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D053983C-8B8B-4D33-9FB6-9FD9FDF22AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D053983C-8B8B-4D33-9FB6-9FD9FDF22AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D053983C-8B8B-4D33-9FB6-9FD9FDF22AA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

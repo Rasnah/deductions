@@ -1,6 +1,6 @@
 ﻿using Deductions.Models.Contracts;
 
-namespace Deductions.Models.Entities
+namespace Deductions.Core.Entities
 {
     public interface IDiscount
     {

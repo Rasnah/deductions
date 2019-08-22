@@ -4,7 +4,7 @@ namespace Deductions.Models.Contracts
 {
     public class EmployeeContract : BeneficiaryContract
     {
-        EmployeeContract() : base()
+        public EmployeeContract() : base()
         {
             Dependents = new List<DependentContract>();
         }
