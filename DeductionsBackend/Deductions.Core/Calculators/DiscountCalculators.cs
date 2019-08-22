@@ -15,7 +15,7 @@ namespace Deductions.Core.Calculators
     {
         public decimal CalculateBeneficiaryDiscountPaycheckValue(BeneficiaryContract beneficiary, IEnumerable<IDiscount> potentialDiscounts, int numberOfPaychecks)
         {
-            return decimal.Round(potentialDiscounts.Where(x => x.CheckIfApplicable(beneficiary)).Select(x => x.CalculateValue(beneficiary)).Sum(), 2, MidpointRounding.AwayFromZero);
+            return decimal.Round(potentialDiscounts.Where(x => x.CheckIfApplicable(beneficiary)).Select(x => decimal.Round(x.CalculateValue(beneficiary) / numberOfPaychecks, 2, MidpointRounding.AwayFromZero) ).Sum(), 2, MidpointRounding.AwayFromZero);
         }
     }
 }

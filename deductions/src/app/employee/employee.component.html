@@ -1,46 +1,105 @@
-<h2>Input Employee Information</h2>
 <form [formGroup]="employeeForm" (ngSubmit)="submit()">
   <div class="row">
     <div class="col">
-      <label for="employeeFirstName">Employee First Name</label>
-      <input name="employeeFirstName" type="text" formControlName="firstName"/>
-    </div>
-    <div class="col">
-      <label for="employeeAnnualSalary">Employee Annual Salary</label>
-      <input name="employeeAnnualSalary" type="number" formControlName="annualSalary"/>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <label for="employeeLastName">Employee Last Name</label>
-      <input name="employeeLastName" type="text" formControlName="lastName"/>
-    </div>
-    <div class="col">
-      <label for="employeeElectedBenefitsCost">Employee Annual Elected Benefits Cost</label>
-      <input name="employeeElectedBenefitsCost" type="number" formControlName="annualElectedBenefitsCost"/>
-    </div>
-  </div>
-  <div formArrayName="dependents" *ngFor="let dependent of dependentsArray.controls; let i=index">
-    <ng-container [formGroupName]="i"]>
       <div class="row">
         <div class="col">
-          <label for="employeeFirstName">First Name</label>
-          <input name="employeeFirstName" type="text" formControlName="firstName"/>
-        </div>
-        <div class="col">
-          <label for="employeeLastName">Last Name</label>
-          <input name="employeeLastName" type="text" formControlName="lastName"/>
+          <h3>Employee Information</h3>
         </div>
       </div>
-    </ng-container>
-  </div>
-  <div class="row">
+      <div class="row">
+        <div class="col text-input">
+          <label for="employeeFirstName">First Name</label>
+          <input class="form-control" name="employeeFirstName" type="text" formControlName="firstName" required/>
+        </div>
+        <div class="col number-input">
+          <label for="employeeAnnualSalary">Annual Salary</label>
+          <input class="form-control" name="employeeAnnualSalary" type="number" formControlName="annualSalary" required/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-input">
+          <label for="employeeLastName">Last Name</label>
+          <input class="form-control" name="employeeLastName" type="text" formControlName="lastName" required/>
+        </div>
+        <div class="col number-input">
+          <label for="employeeElectedBenefitsCost">Annual Elected Benefits Cost</label>
+          <input class="form-control" name="employeeElectedBenefitsCost" type="number" formControlName="annualElectedBenefitsCost" required/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5>Dependents</h5>
+        </div>
+      </div>
+      <div formArrayName="dependents" *ngFor="let dependent of dependentsArray.controls; let i=index">
+        <ng-container [formGroupName]="i"]>
+          <div class="row">
+            <div class="col text-input">
+              <label for="dependentFirstName">First Name</label>
+              <input class="form-control" name="dependentFirstName" type="text" formControlName="firstName" required/>
+            </div>
+            <div class="col number-input">
+              <label for="employeeElectedBenefitsCost">Annual Elected Benefits Cost</label>
+              <input class="form-control" name="employeeElectedBenefitsCost" type="number" formControlName="annualElectedBenefitsCost" required/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-input">
+              <label for="dependentLastName">Last Name</label>
+              <input class="form-control" name="dependentLastName" type="text" formControlName="lastName" required/>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="button" (click)="addDependent()">Add Dependent</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <button type="submit" class="float-right" [disabled]="!employeeForm.valid">Submit</button>
+        </div>
+      </div>
+    </div>
     <div class="col">
-      <button type="button" (click)="addDependent()">Add Dependent</button>
+      <div class="row">
+        <div class="col">
+          <h3>Summary of Paychecks</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table>
+            <thead>
+              <tr>
+                <th>Check Number</th>
+                <th>Gross Pay</th>
+                <th>Deductions</th>
+                <th>Net Pay</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let paycheck of paychecks">
+                <tr>
+                  <td>{{ paycheck.payPeriodOrdinal + 1 }}</td>
+                  <td>${{ paycheck.grossPayAmount | number:'1.2-2' }}</td>
+                  <td>${{ paycheck.deductionsAmount | number:'1.2-2' }}</td>
+                  <td>${{ paycheck.netPayAmount | number:'1.2-2' }}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td>Annual Salary: ${{ annualSalary | number:'1.2-2' }}</td>
+                <td>Annual Deductions: ${{ annualDeductions | number:'1.2-2' }}</td>
+                <td>Annual Net Pay: ${{ annualNetPay | number:'1.2-2' }}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
-
-  <button type="submit">Submit</button>
-
-  <pre>{{ employeeForm.getRawValue() | json }}</pre>
 </form>

@@ -12,13 +12,13 @@ namespace Deductions.Core.Calculators
     {
         public CompensationSummaryResultContract CorrectRoundingLoss(CompensationSummaryRequestContract request, decimal totalAnnualDiscounts, IEnumerable<PaycheckContract> paychecks)
         {
-            var totalAnnualDeductions = paychecks.Select(x => x.DeductionsAmout).Sum();
+            var totalAnnualDeductions = paychecks.Select(x => x.DeductionsAmount).Sum();
             var totalUndiscountedDeductions = request.Employee.AnnualElectedBenefitsCost + request.Employee.Dependents.Select(x => x.AnnualElectedBenefitsCost).Sum();
             var roundingLoss = totalUndiscountedDeductions - totalAnnualDiscounts - totalAnnualDeductions;
             if (roundingLoss != 0m)
             {
                 var lastPaycheck = paychecks.Where(x => x.PayPeriodOrdinal == request.NumberOfPaychecks - 1).FirstOrDefault();
-                lastPaycheck.DeductionsAmout += roundingLoss;
+                lastPaycheck.DeductionsAmount += roundingLoss;
                 lastPaycheck.NetPayAmount -= roundingLoss;
                 totalAnnualDeductions += roundingLoss;
             }

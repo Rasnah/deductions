@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+.col {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.row {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.inputs {
+  label {
+    margin-bottom: 0.1rem;
+    font-weight: bold;
+  }
+  input {
+    display: block;
+    width: 15rem;
+    &.ng-invalid {
+      border-color: red;
+    }
+  }
+}
+
+.text-input {
+  @extend .inputs;
+}
+
+.number-input {
+  @extend .inputs;
+  input::-webkit-inner-spin-button,
+  input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+table {
+  width: 100%
+}

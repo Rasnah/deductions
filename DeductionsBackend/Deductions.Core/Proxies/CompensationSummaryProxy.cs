@@ -43,7 +43,7 @@ namespace Deductions.Core.Proxies
                 {
                     PayPeriodOrdinal = i,
                     GrossPayAmount = grossPay,
-                    DeductionsAmout = deductions,
+                    DeductionsAmount = deductions,
                     NetPayAmount = grossPay - deductions
                 };
             }).ToList();
