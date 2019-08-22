@@ -6,8 +6,18 @@
       <input name="employeeFirstName" type="text" formControlName="firstName"/>
     </div>
     <div class="col">
+      <label for="employeeAnnualSalary">Employee Annual Salary</label>
+      <input name="employeeAnnualSalary" type="number" formControlName="annualSalary"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
       <label for="employeeLastName">Employee Last Name</label>
       <input name="employeeLastName" type="text" formControlName="lastName"/>
+    </div>
+    <div class="col">
+      <label for="employeeElectedBenefitsCost">Employee Annual Elected Benefits Cost</label>
+      <input name="employeeElectedBenefitsCost" type="number" formControlName="annualElectedBenefitsCost"/>
     </div>
   </div>
   <div formArrayName="dependents" *ngFor="let dependent of dependentsArray.controls; let i=index">

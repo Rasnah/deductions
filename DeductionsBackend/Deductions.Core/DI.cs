@@ -10,7 +10,8 @@ namespace Deductions.Core
         {
             services.AddSingleton<IDeductionCalculators, DeductionCalculators>();
             services.AddSingleton<IDiscountCalculators, DiscountCalculators>();
-            services.AddSingleton<IEmployeeDeductionProxy, EmployeeDeductionProxy>();
+            services.AddSingleton<ISummaryRoundingLossCalculators, SummaryRoundingLossCalculators>();
+            services.AddSingleton<ICompensationSummaryProxy, CompensationSummaryProxy>();
             return services;
         }
     }

@@ -1,24 +1,21 @@
 ﻿using Deductions.Models.Contracts;
+using Deductions.Models.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Deductions.Core.Calculators
 {
     public interface IDiscountCalculators
     {
-        decimal CalculateDiscountValue(EmployeeContract employee);
+        decimal CalculateBeneficiaryDiscountPaycheckValue(BeneficiaryContract beneficiary, IEnumerable<IDiscount> potentialDiscounts, int numberOfPaychecks);
     }
 
     public class DiscountCalculators : IDiscountCalculators
     {
-        const decimal NAME_DISCOUNT_PERCENTAGE = 0.1m;
-
-        public decimal CalculateDiscountValue(EmployeeContract employee)
+        public decimal CalculateBeneficiaryDiscountPaycheckValue(BeneficiaryContract beneficiary, IEnumerable<IDiscount> potentialDiscounts, int numberOfPaychecks)
         {
-            return 0m;
-        }
-
-        private bool CheckForNameDiscount(string name)
-        {
-            return name.ToLower().StartsWith("a");
+            return decimal.Round(potentialDiscounts.Where(x => x.CheckIfApplicable(beneficiary)).Select(x => x.CalculateValue(beneficiary)).Sum(), 2, MidpointRounding.AwayFromZero);
         }
     }
 }

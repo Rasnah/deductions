@@ -2,15 +2,14 @@
 
 namespace Deductions.Models.Contracts
 {
-    public class EmployeeContract
+    public class EmployeeContract : BeneficiaryContract
     {
-        EmployeeContract()
+        EmployeeContract() : base()
         {
             Dependents = new List<DependentContract>();
         }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public decimal AnnualSalary { get; set; }
         public IEnumerable<DependentContract> Dependents { get; set; }
     }
 }

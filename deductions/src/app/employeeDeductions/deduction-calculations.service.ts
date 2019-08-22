@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EmployeeContract } from '../contracts/employee.contract';
+import { CompensationSummaryRequestContract } from '../contracts/compensation-summary-request.contract';
+import { CompensationSummaryResultContract } from '../contracts/compensation-summary-result.contract';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ export class DeductionCalculationsService {
 
   constructor(private http: HttpClient) { }
 
-  calculateEmployeeDeductions(employee: EmployeeContract): Observable<number> {
-    return this.http.post<number>('http://localhost:4201/api/DeductionCalculations', employee, httpOptions);
+  calculateEmployeeDeductions(request: CompensationSummaryRequestContract): Observable<CompensationSummaryResultContract> {
+    return this.http.post<CompensationSummaryResultContract>('http://localhost:4201/api/CompensationSummary', request, httpOptions);
   }
 }

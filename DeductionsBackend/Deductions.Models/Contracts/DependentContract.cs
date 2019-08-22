@@ -1,8 +1,6 @@
 ﻿namespace Deductions.Models.Contracts
 {
-    public class DependentContract
+    public class DependentContract : BeneficiaryContract
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
     }
 }

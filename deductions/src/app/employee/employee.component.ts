@@ -4,6 +4,7 @@ import { FormArray, FormGroup } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { DeductionCalculationsService } from '../employeeDeductions/deduction-calculations.service';
 import { EmployeeFormService } from './form-service/employee-form.service';
+import { CompensationSummaryRequestContract } from '../contracts/compensation-summary-request.contract';
 
 @Component({
   selector: 'app-employee',
@@ -26,7 +27,10 @@ export class EmployeeComponent implements OnInit {
   }
 
   submit(): void {
-    this.deductionCalculationService.calculateEmployeeDeductions(this.employeeFormService.getEmployee()).pipe(first()).subscribe();
+    const request = new CompensationSummaryRequestContract();
+    request.numberOfPaychecks = 26;
+    request.employee = this.employeeFormService.getEmployee();
+    this.deductionCalculationService.calculateEmployeeDeductions(request).pipe(first()).subscribe();
   }
 
   addDependent(): void {

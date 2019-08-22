@@ -1,26 +1,24 @@
 ﻿using Deductions.Models.Contracts;
+using System;
 
 namespace Deductions.Core.Calculators
 {
     public interface IDeductionCalculators
     {
-        decimal CalculateEmployeeAnnualCost(EmployeeContract employee);
-        decimal CalculateDependentAnnualCost(DependentContract dependent);
+        decimal CalculateEmployeePersonalPaycheckDeduction(EmployeeContract employee, int numberOfPaychecks);
+        decimal CalculateEmployeeDependentPaycheckDeduction(DependentContract dependent, int numberOfPaychecks);
     }
 
     public class DeductionCalculators : IDeductionCalculators
     {
-        const decimal EMPLOYEE_ANNUAL_DEDUCTIONS = 1000.00m;
-        const decimal DEPENDENT_ANNUAL_DEDUCTIONS = 500.00m;
-
-        public decimal CalculateEmployeeAnnualCost(EmployeeContract employee)
+        public decimal CalculateEmployeePersonalPaycheckDeduction(EmployeeContract employee, int numberOfPaychecks)
         {
-            return EMPLOYEE_ANNUAL_DEDUCTIONS;
+            return decimal.Round(employee.AnnualElectedBenefitsCost / numberOfPaychecks, 2, MidpointRounding.AwayFromZero);
         }
 
-        public decimal CalculateDependentAnnualCost(DependentContract dependent)
+        public decimal CalculateEmployeeDependentPaycheckDeduction(DependentContract dependent, int numberOfPaychecks)
         {
-            return DEPENDENT_ANNUAL_DEDUCTIONS;
+            return decimal.Round(dependent.AnnualElectedBenefitsCost / numberOfPaychecks, 2, MidpointRounding.AwayFromZero);
         }
     }
 }
